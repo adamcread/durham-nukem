@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head> 
     <meta charset="UTF-8" />
-    <title>Making your first Phaser 3 Game - Part 10</title>
+    <title>Making your first Phaser 3 Game</title>
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
     <style type="text/css">
         body {
@@ -21,7 +21,7 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 300 },
+            gravity: { y: 500 },
             debug: false
         }
     },
@@ -40,38 +40,49 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
+var jump1 = false;
+var jump2 = false;
 
 var game = new Phaser.Game(config);
 
+// loads in assets
 function preload () {
-    this.load.image('sky', 'assets/sky.png');
+    this.load.image('sky', 'assets/sky.png'); // first argument is asset key - a string link to the asset
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('dude', 
+        'assets/disciple.png', 
+        { frameWidth: 44, frameHeight: 52 }
+    );
 }
 
 function create () {
     //  A simple background for our game
+    // coordinates define the center position of the image in the canvas
+    // this can be changed using setOrigin function
     this.add.image(400, 300, 'sky');
 
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = this.physics.add.staticGroup();
 
-    //  Here we create the ground.
-    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+    // Here we create the ground.
+    // Scale it to fit the width of the game (the original sprite is 400x32 in size hence scale by 2 so it fits 800px width)
+    // setScale only scales visually, refreshBody updates the hitbox
     platforms.create(400, 568, 'ground').setScale(2).refreshBody();
 
     //  Now let's create some ledges
+    // ledges to jump on
     platforms.create(600, 400, 'ground');
     platforms.create(50, 250, 'ground');
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
+    // add a sprite to physics engine
     player = this.physics.add.sprite(100, 450, 'dude');
 
     //  Player physics properties. Give the little guy a slight bounce.
-    player.setBounce(0.2);
+    // player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
     //  Our player animations, turning, walking left and walking right.
@@ -106,10 +117,8 @@ function create () {
     });
 
     stars.children.iterate(function (child) {
-
         //  Give each star a slightly different bounce
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-
     });
 
     bombs = this.physics.add.group();
@@ -148,9 +157,22 @@ function update () {
 
         player.anims.play('turn');
     }
-
-    if (cursors.up.isDown && player.body.touching.down) {
+    
+    if (cursors.up.isDown && !jump2) {
         player.setVelocityY(-330);
+        console.log(jump1, jump2);
+        if (jump1) {
+            jump2 = true;
+        }
+    }
+
+    if (cursors.up.isUp && !player.body.touching.down) {
+        jump1 = true;
+    }
+
+    if (player.body.touching.down) {
+        jump1 = false;
+        jump2 = false;
     }
 }
 
