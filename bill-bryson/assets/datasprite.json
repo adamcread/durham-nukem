@@ -1,0 +1,1091 @@
+{
+	"textures": [
+		{
+			"image": "datasprite.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 495,
+				"h": 225
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "gunguy-0.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-1.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 45,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-2.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 90,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-3.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-4.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 180,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-5.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-6.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 270,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-7.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 315,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-8.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 360,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-9.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 405,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-10.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 450,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-11.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 0,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-12.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 45,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-13.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 90,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-14.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-15.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 180,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-16.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-17.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 270,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-18.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 315,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-19.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 360,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-20.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 405,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-21.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 450,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-22.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 0,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-23.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 45,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-24.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 90,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-25.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-26.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 180,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-27.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-28.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 270,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-29.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 315,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-30.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 360,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-31.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 405,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-32.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 450,
+						"y": 90,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-33.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 0,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-34.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 45,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-35.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 90,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-36.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-37.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 180,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-38.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-39.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 270,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-40.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 315,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-41.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 360,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-42.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 405,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-43.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 450,
+						"y": 135,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-44.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 0,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-45.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 45,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-46.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 90,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-47.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 135,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-48.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 180,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-49.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 225,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				},
+				{
+					"filename": "gunguy-50.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 45,
+						"h": 45
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 270,
+						"y": 180,
+						"w": 45,
+						"h": 45
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b69c9af22168da9d93b59d580299a991:947f889630d7fc6a4cdfbb5f74d17120:f9cd77b6bfcf520c320c1c0400598b89$"
+	}
+}
