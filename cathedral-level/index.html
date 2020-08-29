@@ -41,10 +41,10 @@
 
         const map = this.make.tilemap({ key: 'map' });
         const tileset = map.addTilesetImage('Tiny Platform Quest Tiles', 'tiles');
-        const groundLayer = map.createDynamicLayer('Ground Layer', tileset, 0, 0);
-        const skyLayer = map.createDynamicLayer('Sky Layer', tileset, 0, 0);
-        const treeLayer = map.createDynamicLayer('Tree Layer', tileset, 0, 0);
-        const platformsLater = map.createDynamicLayer('Platforms Layer', tileset, 0, 0);
+        const groundLayer = map.createStaticLayer('Ground Layer', tileset, 0, 0);
+        const skyLayer = map.createStaticLayer('Sky Layer', tileset, 0, 0);
+        const treeLayer = map.createStaticLayer('Tree Layer', tileset, 0, 0);
+        const platformsLater = map.createStaticLayer('Platforms Layer', tileset, 0, 0);
     }
 
     function update ()
