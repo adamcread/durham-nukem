@@ -45,6 +45,10 @@
         const skyLayer = map.createStaticLayer('Sky Layer', tileset, 0, 0);
         const treeLayer = map.createStaticLayer('Tree Layer', tileset, 0, 0);
         const platformsLayer = map.createStaticLayer('Platforms Layer', tileset, 0, 0);
+
+        platformsLayer.setCollisionByProperty({ collides: true });
+
+        this.matter.world.convertTilemapLayer(platformsLayer);
     }
 
     function update ()
