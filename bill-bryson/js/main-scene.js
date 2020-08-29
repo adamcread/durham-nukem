@@ -5,11 +5,6 @@ export default class MainScene extends Phaser.Scene {
         this.load.tilemapTiledJSON("map", "assets/library-map.json");
         this.load.image("tileset", "assets/tileset.png");
         this.load.image("background", "assets/library.png");
-        // this.load.image("player", "assets/datasprite.png")
-        this.load.spritesheet('player', 
-            'assets/datasprite.png', 
-            { frameWidth: 44, frameHeight: 52 }
-        );
 
         // Load sprite sheet generated with TexturePacker
         this.load.atlas('sheet', 'assets/datasprite.png', 'assets/datasprite.json');
@@ -27,7 +22,7 @@ export default class MainScene extends Phaser.Scene {
         
         const spikeLayer = map.createStaticLayer("spikes", tileset, 0, 0);
         const platformLayer = map.createStaticLayer("platforms", tileset, 0, 0);
-        map.createDynamicLayer("bookshelves", tileset, 0, 0);
+        map.createStaticLayer("bookshelves", tileset, 0, 0);
 
         spikeLayer.setCollisionByProperty({ collides: true });
         platformLayer.setCollisionByProperty({ collides: true });
