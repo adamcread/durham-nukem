@@ -1,4 +1,4 @@
-import Player from "./player.js";
+import Player from "../../bill-bryson/js/player.js";
 
 export default class MainScene extends Phaser.Scene {
     preload ()
@@ -9,10 +9,10 @@ export default class MainScene extends Phaser.Scene {
         this.load.image('cathedral', 'assets/images/cathedral-pixelated.png'); 
 
         // Load sprite sheet generated with TexturePacker
-        this.load.atlas('sheet', 'assets/datasprite.png', 'assets/datasprite.json');
+        this.load.atlas('sheet', '../bill-bryson/assets/datasprite.png', '../bill-bryson/assets/datasprite.json');
 
         // Load body shapes from JSON file generated using PhysicsEditor
-        this.load.json('shapes', 'assets/player-hitbox.json');
+        this.load.json('shapes', '../bill-bryson/assets/player-hitbox.json');
     }
 
     create ()
@@ -22,20 +22,20 @@ export default class MainScene extends Phaser.Scene {
         const shapes = this.cache.json.get('shapes');
         const map = this.make.tilemap({ key: 'map' });
         const tileset = map.addTilesetImage('Tiny Platform Quest Tiles', 'tiles');
-        const groundLayer = map.createStaticLayer('Ground Layer', tileset, 0, 0);
+        const platformLayer = map.createStaticLayer('Ground Layer', tileset, 0, 0);
         const skyLayer = map.createStaticLayer('Sky Layer', tileset, 0, 0);
         const treeLayer = map.createStaticLayer('Tree Layer', tileset, 0, 0);
         const platformsLayer = map.createStaticLayer('Platforms Layer', tileset, 0, 0);
 
         platformsLayer.setCollisionByProperty({ collides: true });
-        groundLayer.setCollisionByProperty({ collides: true });
+        platformLayer.setCollisionByProperty({ collides: true });
 
         this.matter.world.convertTilemapLayer(platformsLayer);
-        this.matter.world.convertTilemapLayer(groundLayer);
+        this.matter.world.convertTilemapLayer(platformLayer);
 
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         
-        this.player = new Player(this, 300, 300, shapes, groundLayer);
+        this.player = new Player(this, 300, 300, shapes, platformLayer);
     }
 
     update ()
