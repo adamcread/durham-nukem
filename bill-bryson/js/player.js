@@ -1,10 +1,8 @@
 export default class Player {
     constructor(scene, x, y, shapes) {
         this.hitboxes = shapes
-        console.log(scene.hitboxes)
         this.scene = scene;
         this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
-        console.log(this.sprite)
         this.projectiles = [];
 
         this.sprite
@@ -47,6 +45,7 @@ export default class Player {
         this.downInput = this.cursors.down
         this.canJump = true
         this.canFire = true
+        this.onGround = true
         
         this.destroyed = false;
         this.scene.events.on("update", this.update, this);
@@ -77,8 +76,14 @@ export default class Player {
         }
     
         // --- Move the player vertically ---
-        if (isJumpKeyDown && this.canJump) {
+        if (isJumpKeyDown && this.canJump && this.onGround) {
             sprite.setVelocityY(-10);
+
+            this.canJump = false;
+            this.jumpCooldownTimer = this.scene.time.addEvent({
+                delay: 250,
+                callback: () => (this.canJump = true)
+            });
         }
 
         if (isDownKeyDown && this.canFire) {
@@ -101,9 +106,9 @@ export default class Player {
         }
 
         if (this.sprite.body.velocity.y) {
-            this.canJump = false;
+            this.onGround = false;
         } else {
-            this.canJump = true;
+            this.onGround = true;
         }
 
         this.projectiles.forEach(projectile => 
