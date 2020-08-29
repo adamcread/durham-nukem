@@ -1,4 +1,5 @@
 import Player from "../../bill-bryson/js/player.js";
+import Boss from "./boss.js";
 
 export default class MainScene extends Phaser.Scene {
     preload ()
@@ -13,6 +14,11 @@ export default class MainScene extends Phaser.Scene {
 
         // Load body shapes from JSON file generated using PhysicsEditor
         this.load.json('shapes', '../bill-bryson/assets/player-hitbox.json');
+
+        this.load.spritesheet('dude', 
+            'assets/spritesheets/dude.png',
+            { frameWidth: 32, frameHeight: 48 }
+        );
     }
 
     create ()
@@ -36,6 +42,8 @@ export default class MainScene extends Phaser.Scene {
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         
         this.player = new Player(this, 300, 300, shapes, platformLayer);
+
+        this.boss = new Boss(this, 520, 312);
     }
 
     update ()
