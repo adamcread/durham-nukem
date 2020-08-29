@@ -3,8 +3,8 @@ export default class Player {
         this.hitboxes = shapes
         console.log(scene.hitboxes)
         this.scene = scene;
-        // this.sprite = scene.matter.add.sprite(0, 0, "player", 0);
         this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
+        console.log(this.sprite)
         this.projectiles = [];
 
         this.sprite
@@ -15,7 +15,6 @@ export default class Player {
         const anims = scene.anims;
         anims.create({
             key: "player-idle",
-            // frames: anims.generateFrameNumbers("player", { start: 0, end: 3 }),
             frames: [
                 { key: 'sheet', frame: 'gunguy-0.png'},
                 { key: 'sheet', frame: 'gunguy-1.png'},
@@ -40,13 +39,6 @@ export default class Player {
             frameRate: 10,
             repeat: -1
         });
-
-        scene.matterCollision.addOnCollideActive({
-            objectA: this.sprite,
-            objectB: scene.platformLayer,
-            callback: this.touchingFloor,
-            context: this
-        });
         
         this.cursors = scene.input.keyboard.createCursorKeys();
         this.leftInput = this.cursors.left
@@ -61,7 +53,6 @@ export default class Player {
     }
 
     update() {  
-        // console.log(this.scene.gravity)
         if (this.destroyed) return;
     
         const sprite = this.sprite;
@@ -69,7 +60,6 @@ export default class Player {
         const isLeftKeyDown = this.leftInput.isDown;
         const isJumpKeyDown = this.jumpInput.isDown;
         const isDownKeyDown = this.downInput.isDown;
-        const isOnGround = this.isOnGround;
     
         if (!isLeftKeyDown && !isRightKeyDown && !isJumpKeyDown) {
             sprite.anims.play("player-idle", true);
@@ -87,17 +77,8 @@ export default class Player {
         }
     
         // --- Move the player vertically ---
-        if (isJumpKeyDown && this.canJump && isOnGround) {
+        if (isJumpKeyDown && this.canJump) {
             sprite.setVelocityY(-10);
-    
-            // Add a slight delay between jumps since the bottom sensor will still collide for a few
-            // frames after a jump is initiated
-            this.canJump = false;
-            this.isOnGround = false;
-            this.jumpCooldownTimer = this.scene.time.addEvent({
-                delay: 250,
-                callback: () => (this.canJump = true)
-            });
         }
 
         if (isDownKeyDown && this.canFire) {
@@ -119,6 +100,12 @@ export default class Player {
             });  
         }
 
+        if (this.sprite.body.velocity.y) {
+            this.canJump = false;
+        } else {
+            this.canJump = true;
+        }
+
         this.projectiles.forEach(projectile => 
             this.scene.matterCollision.addOnCollideStart({
                 objectA: projectile,
@@ -126,10 +113,6 @@ export default class Player {
                 context: projectile
             })
         );
-    }
-
-    touchingFloor() {
-        this.isOnGround = true;
     }
 
     deleteProjectile() {
