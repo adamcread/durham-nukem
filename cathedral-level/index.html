@@ -47,8 +47,10 @@
         const platformsLayer = map.createStaticLayer('Platforms Layer', tileset, 0, 0);
 
         platformsLayer.setCollisionByProperty({ collides: true });
+        groundLayer.setCollisionByProperty({ collides: true });
 
         this.matter.world.convertTilemapLayer(platformsLayer);
+        this.matter.world.convertTilemapLayer(groundLayer);
     }
 
     function update ()
