@@ -1,9 +1,10 @@
 export default class Player {
-    constructor(scene, x, y, hitboxes, floor) {
-        this.hitboxes = hitboxes
+    constructor(scene, x, y, shapes) {
+        this.hitboxes = shapes
+        console.log(scene.hitboxes)
         this.scene = scene;
         // this.sprite = scene.matter.add.sprite(0, 0, "player", 0);
-        this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: hitboxes.player })
+        this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
         this.projectiles = [];
 
         this.sprite
@@ -57,8 +58,6 @@ export default class Player {
         
         this.destroyed = false;
         this.scene.events.on("update", this.update, this);
-
-        
     }
 
     update() {  
@@ -106,28 +105,27 @@ export default class Player {
             if (this.sprite.flipX) {
                 d = -1
             }
-            this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x+100*d, this.sprite.y, 
-                'sheet', 'gunguy-1.png', 
-                { shape: this.hitboxes.player })
+
+            this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x+15*d, this.sprite.y-3, 
+                'bullet')
+                .setScale(0.2)
                 .setVelocityX(10*d)
                 .setIgnoreGravity(true));
-            
-            console.log(this.projectiles);
 
             this.canFire = false;
             this.jumpCooldownTimer = this.scene.time.addEvent({
                 delay: 250,
                 callback: () => (this.canFire = true)
-            });
-
-            this.projectiles.forEach(projectile => 
-                this.scene.matterCollision.addOnCollideStart({
-                    objectA: projectile,
-                    callback: this.deleteProjectile,
-                    context: projectile
-                })
-            );
+            });  
         }
+
+        this.projectiles.forEach(projectile => 
+            this.scene.matterCollision.addOnCollideStart({
+                objectA: projectile,
+                callback: this.deleteProjectile,
+                context: projectile
+            })
+        );
     }
 
     touchingFloor() {

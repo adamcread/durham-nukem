@@ -5,6 +5,7 @@ export default class MainScene extends Phaser.Scene {
         this.load.tilemapTiledJSON("map", "assets/library-map.json");
         this.load.image("tileset", "assets/tileset.png");
         this.load.image("background", "assets/library.png");
+        this.load.image("bullet", "assets/bullet.png");
 
         // Load sprite sheet generated with TexturePacker
         this.load.atlas('sheet', 'assets/datasprite.png', 'assets/datasprite.json');
@@ -31,7 +32,7 @@ export default class MainScene extends Phaser.Scene {
         this.matter.world.convertTilemapLayer(platformLayer);
 
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.player = new Player(this, 300, 300, shapes, platformLayer);
+        this.player = new Player(this, 300, 300, shapes);
     }
 
     update() {}
