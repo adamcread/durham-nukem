@@ -1,7 +1,7 @@
 import Player from "../../bill-bryson/js/player.js";
 import Boss from "./boss.js";
 
-export default class MainScene extends Phaser.Scene {
+export default class Cathedral extends Phaser.Scene {
     preload ()
     {
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/cathedral-map.json');

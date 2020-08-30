@@ -8,6 +8,7 @@
   <tile id="276">
    <properties>
     <property name="collides" type="bool" value="true"/>
+    <property name="isLethal" type="bool" value="true"/>
    </properties>
    <objectgroup draworder="index" id="2">
     <object id="1" x="4.03749" y="4.06633">
@@ -18,6 +19,7 @@
   <tile id="277">
    <properties>
     <property name="collides" type="bool" value="true"/>
+    <property name="isLethal" type="bool" value="true"/>
    </properties>
    <objectgroup draworder="index" id="2">
     <object id="1" x="3.97981" y="4.09517">

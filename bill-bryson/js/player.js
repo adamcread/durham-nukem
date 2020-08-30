@@ -117,6 +117,11 @@ export default class Player {
                 this.projectiles.splice(i, 1)
             }
         }
+
+        if (this.health <= 0) {
+            console.log("player dead")
+            this.sprite.destroy()
+        }
     }
 
     deleteProjectile() {

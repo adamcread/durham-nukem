@@ -24,8 +24,7 @@ export default class Boss {
             this.sprite.setVelocityY(1)
         }
 
-        if (time % 1000 < 50) {
-            // console.log("projectile")
+        if (Phaser.Math.FloatBetween(0, 1.0) < 0.03) {
             this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x-100, this.sprite.y-3, 
                 'bullet')
                 .setScale(0.2)
@@ -37,6 +36,11 @@ export default class Boss {
             if (this.projectiles[i].scene == undefined) {
                 this.projectiles.splice(i, 1)
             }
+        }
+
+        if (this.health <= 0) {
+            console.log("boss dead")
+            this.sprite.destroy()
         }
     }
 
