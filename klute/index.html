@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>DurJam</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <script src="http://localhost:8000/klute/player.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -35,25 +36,26 @@
     
         function preload ()
         {
-            this.load.image("tiles_photo", "http://localhost:8000/assets/tiles_photo.png");
-            this.load.image("klute_photo", "http://localhost:8000/assets/klute_photo.png");
-            this.load.tilemapTiledJSON("klute_map", "http://localhost:8000/assets/klute_tilemap.json");
-            this.load.spritesheet('dude', 'http://localhost:8000/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+            this.load.image("tiles_photo", "http://localhost:8000/klute/assets/tiles_photo.png");
+            this.load.image("klute_photo", "http://localhost:8000/klute/assets/klute_photo.png");
+            this.load.tilemapTiledJSON("klute_map", "http://localhost:8000/klute/assets/klute_map.json");
+            this.load.image("bullet", "http://localhost:8000/bill-bryson/assets/bullet.png");
+            this.load.spritesheet('dude', 'http://localhost:8000/klute/assets/dude.png', { frameWidth: 32, frameHeight: 48 });
+            this.load.json('shapes', 'http://localhost:8000/bill-bryson/assets/player-hitbox.json');
+            this.load.atlas('sheet', 'http://localhost:8000/bill-bryson/assets/datasprite.png', 'http://localhost:8000/bill-bryson/assets/datasprite.json');
         }
     
         function create ()
         {
+            const shapes = this.cache.json.get('shapes');
             this.add.image(0, 0, "klute_photo").setOrigin(0,0);
             const klute_map = this.make.tilemap({key: "klute_map"});
-            console.log(klute_map);
             const my_tileset = klute_map.addTilesetImage("my_tileset", "tiles_photo");
             const background_tiles = klute_map.createStaticLayer("backgroundTiles", my_tileset);
             background_tiles.setCollisionByProperty({ collides: true });
-            console.log(klute_map);
             this.matter.world.convertTilemapLayer(background_tiles);
-            console.log(background_tiles);
             // 192 for height
-            this.player = this.matter.add.sprite(130, 100, "dude");
+            this.dude = this.matter.add.sprite(130, 100, "dude");
             // this.player.setBounce(0.2);
             this.anims.create({
                 key: 'left',
@@ -73,6 +75,7 @@
                 repeat: -1
             });
             this.matter.world.setBounds(0, 0, klute_map.widthInPixels, klute_map.heightInPixels);
+            this.player = new Player(this, 50, 50, shapes);
         }
     
         function update ()
