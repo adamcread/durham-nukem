@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+ <editorsettings>
+  <export target="klute_tilemap.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="my_tileset" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
+  <image source="tiles_photo.png" width="512" height="512"/>
+  <tile id="778">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.62726" y="1.91203">
+     <polygon points="0,0 12.4485,0.0406814 12.5299,12.1231 0.325451,12.0824"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="779">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.05772" y="2.23748">
+     <polygon points="0,0 12.9367,-0.0406814 12.9774,11.3908 0.447496,11.3094"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="965">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2.52225" y="2.23748">
+     <polygon points="0,0 11.106,-0.0406814 10.984,11.7162 -0.813628,11.6756 -0.325451,0.56954"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="968">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.99339" y="2.03407">
+     <polygon points="0,0 12.6519,-0.0813628 12.5706,12.6112 0.0813628,12.4485"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="997">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="2.23748" y="2.64429">
+     <polygon points="0,0 11.5128,0 11.5535,11.9197 0.0813628,11.8383"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="1000">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="1.78998" y="2.11543">
+     <polygon points="0,0 12.3671,0.0813628 12.3265,12.1231 0.203407,12.0417"/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <imagelayer id="2" name="backgroundImage">
+  <image source="klute_photo.png" width="400" height="266"/>
+ </imagelayer>
+ <layer id="1" name="backgroundTiles" width="25" height="16">
+  <data encoding="csv">
+915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,916,915,
+947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,948,947,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+966,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,969,
+998,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1001,
+779,780,779,780,779,780,779,780,779,780,779,780,779,780,779,780,779,780,779,780,779,780,779,780,779
+</data>
+ </layer>
+</map>
