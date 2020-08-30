@@ -1,3 +1,4 @@
+import TitleScreen from "./title screen/index.js";
 import BillBryson from "./bill-bryson/js/main-scene.js";
 import Cathedral from "./cathedral-level/js/main-scene.js";
 
