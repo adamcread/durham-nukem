@@ -37,14 +37,5 @@ export default class Boss {
                 this.projectiles.splice(i, 1)
             }
         }
-
-        if (this.health <= 0) {
-            console.log("boss dead")
-            this.sprite.destroy()
-        }
-    }
-
-    deleteProjectile() {
-        this.destroy()
     }
 }

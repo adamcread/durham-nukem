@@ -41,8 +41,4 @@ export default class Boss {
             }
         }
     }
-
-    deleteProjectile() {
-        this.destroy()
-    }
 }
