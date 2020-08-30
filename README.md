@@ -1,3 +1,5 @@
+![](https://media.giphy.com/media/MFUOFSVpBwTS2ya7up/giphy.gif)
+
 # Running the game
 
 1. Open the command line and `cd` into this repository, `durjam`.
