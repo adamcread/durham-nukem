@@ -2,6 +2,8 @@
 
 ### Fight bosses in Durham scenery
 
+**Demo video available in DevPost submission**
+
 ![](title%20screen/assets/title_image.png)
 
 # Running the game
@@ -14,7 +16,19 @@
 
 5. Play the game and enjoy!
 
-**A demo and explanation of controls are available in the video submission on DevPost**
+# Controls
+
+## Title Screen
+
+<kbd>&#8593;</kbd> Start
+
+## In-game
+
+<kbd>&#8593;</kbd> Jump
+
+<kbd>&#8592;</kbd> <kbd>&#8594;</kbd> Move
+
+<kbd>&#8595;</kbd> Shoot
 
 # Gallery
 
