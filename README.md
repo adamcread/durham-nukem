@@ -1,3 +1,5 @@
+![](title%20screen/assets/title_image.png)
+
 # Running the game
 
 1. Open the command line and `cd` into this repository, `durjam`.
