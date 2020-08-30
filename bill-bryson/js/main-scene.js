@@ -80,7 +80,7 @@ export default class BillBryson extends Phaser.Scene {
 
         if (this.player.health <= 0) {
             this.player.sprite.setPosition(this.x, this.y);
-            this.boss.health = 10;
+            this.boss.health = 25;
             this.player.health = 3;
         }
 
