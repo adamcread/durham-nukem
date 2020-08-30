@@ -13,9 +13,6 @@ const config = {
     pixelArt: true,
     physics: { 
         default: "matter",
-        matter: {
-            debug: true
-        }
     },
     plugins: {
         scene: [{

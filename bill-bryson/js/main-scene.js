@@ -7,7 +7,7 @@ export default class BillBryson extends Phaser.Scene {
     }
 
     preload () {
-        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/library-map2.json");
+        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/library-map4.json");
         this.load.image("tileset", "bill-bryson/assets/tileset.png");
 
         this.load.image("background", "bill-bryson/assets/library.png");
@@ -42,12 +42,12 @@ export default class BillBryson extends Phaser.Scene {
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         // this.cameras.main.setBounds(0, 0, map.widthInPixels, 352);
 
-        this.x = 700
+        this.x = 100
         this.y = 300
         this.player = new Player(this, this.x, this.y, shapes);
         // this.cameras.main.startFollow(this.player.sprite, false, 0.5, 0.5);
 
-        this.boss = new Boss(this, 700, 300, shapes);
+        this.boss = new Boss(this, 700, 210, shapes);
         this.playerCanDamage = true;
         this.bossCanDamage = true;
 
