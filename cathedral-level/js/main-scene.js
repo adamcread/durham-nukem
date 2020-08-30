@@ -74,6 +74,10 @@ export default class Cathedral extends Phaser.Scene {
             this.boss.health = 10;
             this.player.health = 3;
         }
+
+        if (this.boss.health <= 0) {
+            this.scene.start('EndScene')
+        }
     }
 
     playerBulletCollision ({ bodyA, bodyB, pair }) {
