@@ -1,5 +1,6 @@
 import BillBryson from "bill-bryson/js/main-scene.js";
 import Cathedral from "cathedral-level/js/main-scene.js";
+import TitleScreen from "title screen/index.js";
 
 const config = {
     type: Phaser.AUTO,
@@ -7,7 +8,7 @@ const config = {
     height: 480,
     backgroundColor: "#000c1f",
     parent: "game-container",
-    scene: [BillBryson, Cathedral],
+    scene: [TitleScreen, BillBryson, Cathedral],
     pixelArt: true,
     physics: { 
         default: "matter",
