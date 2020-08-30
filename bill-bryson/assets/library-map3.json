@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"library-map.json"
+         "target":"library-map3.json"
         }
     },
  "height":30,

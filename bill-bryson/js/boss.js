@@ -2,7 +2,7 @@ export default class Boss {
     constructor(scene, x, y, shapes) {
         this.hitboxes = shapes
         this.scene = scene;
-        this.sprite = scene.matter.add.sprite(x, y, "disciple").setFlipX(true).setSensor(true);
+        this.sprite = scene.matter.add.sprite(x, y, "disciple").setFlipX(true).setSensor(false);
         console.log(this.sprite)
         this.projectiles = []
 
@@ -18,7 +18,7 @@ export default class Boss {
     }
 
     update(time) {
-        if (time % 10000 < 5000) {
+        if (time % 5500 < 2750) {
             this.sprite.setVelocityY(-1)
         } else {
             this.sprite.setVelocityY(1)
