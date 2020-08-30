@@ -7,20 +7,20 @@ export default class BillBryson extends Phaser.Scene {
     }
 
     preload () {
-        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/library-map4.json");
-        this.load.image("tileset", "bill-bryson/assets/tileset.png");
+        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/tileset/library-map4.json");
+        this.load.image("tileset", "bill-bryson/assets/tileset/tileset.png");
 
-        this.load.image("background", "bill-bryson/assets/library.png");
-        this.load.image("bullet", "bill-bryson/assets/bullet.png");
-        this.load.image("disciple", "bill-bryson/assets/disciple/disciple-0.png")
-        this.load.image("heart", "bill-bryson/assets/heart.png")
-        this.load.image("healthbar", "bill-bryson/assets/healthbar.png")
+        this.load.image("background", "bill-bryson/assets/images/library.png");
+        this.load.image("bullet", "bill-bryson/assets/images/bullet.png");
+        this.load.image("disciple", "bill-bryson/assets/images/disciple/disciple-0.png")
+        this.load.image("heart", "bill-bryson/assets/images//heart.png")
+        this.load.image("healthbar", "bill-bryson/assets/images/healthbar.png")
 
         // Load sprite sheet generated with TexturePacker
-        this.load.atlas('sheet', 'bill-bryson/assets/datasprite.png', 'bill-bryson/assets/datasprite.json');
+        this.load.atlas('sheet', 'bill-bryson/assets/spriteset/datasprite.png', 'bill-bryson/assets/spriteset/datasprite.json');
 
         // Load body shapes from JSON file generated using PhysicsEditor
-        this.load.json('shapes', 'bill-bryson/assets/player-hitbox.json');
+        this.load.json('shapes', 'bill-bryson/assets/spriteset/player-hitbox.json');
     }
 
     create () {
