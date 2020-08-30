@@ -76,7 +76,7 @@ export default class Cathedral extends Phaser.Scene {
         }
 
         if (this.boss.health <= 0) {
-            this.scene.start('EndScene')
+            this.scene.start('EndScreen')
         }
     }
 

@@ -5,6 +5,7 @@ export default class EndScreen extends Phaser.Scene {
 
     create() {
             this.add.text(20, 20, "Thanks for playing!"); 
+            
             setTimeout(() => {
                 this.scene.start('TitleScreen')
             }, 3000);
