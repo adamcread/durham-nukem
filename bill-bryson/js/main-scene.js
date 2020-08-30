@@ -2,19 +2,23 @@ import Player from "./player.js";
 import Boss from "./boss.js"
 
 export default class BillBryson extends Phaser.Scene {
-    preload () {
-        this.load.tilemapTiledJSON("map", "assets/library-map2.json");
-        this.load.image("tileset", "assets/tileset.png");
+    constructor () {
+        super("BillBryson")
+    }
 
-        this.load.image("background", "assets/library.png");
-        this.load.image("bullet", "assets/bullet.png");
-        this.load.image("disciple", "assets/disciple/disciple-0.png")
+    preload () {
+        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/library-map2.json");
+        this.load.image("tileset", "bill-bryson/assets/tileset.png");
+
+        this.load.image("background", "bill-bryson/assets/library.png");
+        this.load.image("bullet", "bill-bryson/assets/bullet.png");
+        this.load.image("disciple", "bill-bryson/assets/disciple/disciple-0.png")
 
         // Load sprite sheet generated with TexturePacker
-        this.load.atlas('sheet', 'assets/datasprite.png', 'assets/datasprite.json');
+        this.load.atlas('sheet', 'bill-bryson/assets/datasprite.png', 'bill-bryson/assets/datasprite.json');
 
         // Load body shapes from JSON file generated using PhysicsEditor
-        this.load.json('shapes', 'assets/player-hitbox.json');
+        this.load.json('shapes', 'bill-bryson/assets/player-hitbox.json');
     }
 
     create () {
@@ -36,7 +40,12 @@ export default class BillBryson extends Phaser.Scene {
         this.matter.world.convertTilemapLayer(platformLayer);
 
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-        this.player = new Player(this, 700, 300, shapes);
+        // this.cameras.main.setBounds(0, 0, map.widthInPixels, 352);
+
+        this.x = 700
+        this.y = 300
+        this.player = new Player(this, this.x, this.y, shapes);
+        // this.cameras.main.startFollow(this.player.sprite, false, 0.5, 0.5);
 
         this.boss = new Boss(this, 700, 300, shapes);
         this.playerCanDamage = true;
@@ -65,6 +74,16 @@ export default class BillBryson extends Phaser.Scene {
             callback: this.bossBulletCollision,
             context: this
         })
+
+        if (this.player.health <= 0) {
+            this.player.sprite.setPosition(this.x, this.y);
+            this.boss.health = 10;
+            this.player.health = 3;
+        }
+
+        if (this.boss.health <= 0) {
+            this.scene.start('Cathedral')
+        }
     }
 
     playerBulletCollision ({ bodyA, bodyB, pair }) {

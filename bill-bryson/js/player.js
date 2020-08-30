@@ -1,5 +1,7 @@
 export default class Player {
     constructor(scene, x, y, shapes) {
+        this.x = x
+        this.y = y
         this.hitboxes = shapes
         this.scene = scene;
         this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
@@ -117,14 +119,5 @@ export default class Player {
                 this.projectiles.splice(i, 1)
             }
         }
-
-        if (this.health <= 0) {
-            console.log("player dead")
-            this.sprite.destroy()
-        }
-    }
-
-    deleteProjectile() {
-        this.destroy()
     }
 }

@@ -1,5 +1,5 @@
-import BillBryson from "bill-bryson/js/main-scene.js";
-import Cathedral from "cathedral-level/js/main-scene.js";
+import BillBryson from "./bill-bryson/js/main-scene.js";
+import Cathedral from "./cathedral-level/js/main-scene.js";
 
 const config = {
     type: Phaser.AUTO,
