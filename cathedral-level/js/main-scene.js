@@ -43,7 +43,7 @@ export default class MainScene extends Phaser.Scene {
         
         this.player = new Player(this, 300, 300, shapes, platformLayer);
 
-        this.boss = new Boss(this, 520, 312);
+        this.boss = new Boss(this, 400 , 312);
     }
 
     update ()
