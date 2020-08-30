@@ -4,18 +4,22 @@ export default class Boss {
         this.boss = scene.matter.add.sprite(x, y, 'dude');
 
         this.boss
-            .setSensor(false)
+            .setSensor(true)
             .setIgnoreGravity(true)
-            .setFixedRotation();
-    
+            .setFixedRotation()
+            .setScale(2.0)
+            .setVelocityY(-3);
+            
         this.scene.events.on("update", this.update, this);
     }
 
-    update(time) { 
-        if (time % 10000 < 5000) {
-            this.boss.setVelocityX(-2)
-        } else {
-            this.boss.setVelocityX(2)
-        }
+    update(time) {
+        if (this.boss.y < (42)) {
+            this.boss.setVelocityY(3);
+        } else if (this.boss.y > (294)) {
+            this.boss.setVelocityY(-3);
+        } 
+        
+        
     }
 }

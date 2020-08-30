@@ -16,8 +16,8 @@ export default class MainScene extends Phaser.Scene {
         this.load.json('shapes', '../bill-bryson/assets/player-hitbox.json');
 
         this.load.spritesheet('dude', 
-            'assets/spritesheets/dude.png',
-            { frameWidth: 32, frameHeight: 48 }
+            'assets/spritesheets/eyelander.png',
+            { frameWidth: 32, frameHeight: 32 }
         );
     }
 
@@ -43,7 +43,7 @@ export default class MainScene extends Phaser.Scene {
         
         this.player = new Player(this, 300, 300, shapes, platformLayer);
 
-        this.boss = new Boss(this, 400 , 312);
+        this.boss = new Boss(this, 408 , 168);
     }
 
     update ()
