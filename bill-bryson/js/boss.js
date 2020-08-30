@@ -2,7 +2,7 @@ export default class Boss {
     constructor(scene, x, y, shapes) {
         this.hitboxes = shapes
         this.scene = scene;
-        this.sprite = scene.matter.add.sprite(x, y, "disciple").setFlipX(true);
+        this.sprite = scene.matter.add.sprite(x, y, "disciple").setFlipX(true).setSensor(true);
         console.log(this.sprite)
         this.projectiles = []
 
@@ -13,6 +13,7 @@ export default class Boss {
             .setPosition(x, y)
             .setIgnoreGravity(true);
         
+        this.health = 10;
         this.scene.events.on("update", this.update, this);
     }
 
@@ -23,8 +24,7 @@ export default class Boss {
             this.sprite.setVelocityY(1)
         }
 
-        if (time % 1000 < 10) {
-            // console.log("projectile")
+        if (Phaser.Math.FloatBetween(0, 1.0) < 0.03) {
             this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x-100, this.sprite.y-3, 
                 'bullet')
                 .setScale(0.2)
@@ -32,13 +32,16 @@ export default class Boss {
                 .setIgnoreGravity(true));
         }
 
-        this.projectiles.forEach(projectile => 
-            this.scene.matterCollision.addOnCollideStart({
-                objectA: projectile,
-                callback: this.deleteProjectile,
-                context: projectile
-            })
-        );
+        for (let i = 0; i < this.projectiles.length; i++) {
+            if (this.projectiles[i].scene == undefined) {
+                this.projectiles.splice(i, 1)
+            }
+        }
+
+        if (this.health <= 0) {
+            console.log("boss dead")
+            this.sprite.destroy()
+        }
     }
 
     deleteProjectile() {

@@ -46,6 +46,7 @@ export default class Player {
         this.canJump = true
         this.canFire = true
         this.onGround = true
+        this.health = 3;
         
         this.destroyed = false;
         this.scene.events.on("update", this.update, this);
@@ -111,13 +112,16 @@ export default class Player {
             this.onGround = true;
         }
 
-        this.projectiles.forEach(projectile => 
-            this.scene.matterCollision.addOnCollideStart({
-                objectA: projectile,
-                callback: this.deleteProjectile,
-                context: projectile
-            })
-        );
+        for (let i = 0; i < this.projectiles.length; i++) {
+            if (this.projectiles[i].scene == undefined) {
+                this.projectiles.splice(i, 1)
+            }
+        }
+
+        if (this.health <= 0) {
+            console.log("player dead")
+            this.sprite.destroy()
+        }
     }
 
     deleteProjectile() {
