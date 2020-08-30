@@ -13,6 +13,8 @@ export default class BillBryson extends Phaser.Scene {
         this.load.image("background", "bill-bryson/assets/library.png");
         this.load.image("bullet", "bill-bryson/assets/bullet.png");
         this.load.image("disciple", "bill-bryson/assets/disciple/disciple-0.png")
+        this.load.image("heart", "bill-bryson/assets/heart.png")
+        this.load.image("healthbar", "bill-bryson/assets/healthbar.png")
 
         // Load sprite sheet generated with TexturePacker
         this.load.atlas('sheet', 'bill-bryson/assets/datasprite.png', 'bill-bryson/assets/datasprite.json');
@@ -50,8 +52,8 @@ export default class BillBryson extends Phaser.Scene {
         this.boss = new Boss(this, 700, 210, shapes);
         this.playerCanDamage = true;
         this.bossCanDamage = true;
-
-        console.log(this.spikeLayer)
+        
+        // console.log(this.spikeLayer)
 
         this.matterCollision.addOnCollideActive({
             objectA: this.player.sprite,
@@ -62,6 +64,7 @@ export default class BillBryson extends Phaser.Scene {
     }
 
     update() {
+
         // console.log(this.player.projectiles)
         this.matterCollision.addOnCollideStart({
             objectA: this.player.projectiles,
@@ -82,7 +85,8 @@ export default class BillBryson extends Phaser.Scene {
         }
 
         if (this.boss.health <= 0) {
-            this.scene.start('Cathedral')
+            this.scene.start("Cathedral")
+            // this.scene.start('EndScreen')
         }
     }
 

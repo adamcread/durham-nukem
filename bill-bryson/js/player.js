@@ -6,6 +6,7 @@ export default class Player {
         this.scene = scene;
         this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
         this.projectiles = [];
+        this.hearts = [];
 
         this.sprite
             .setScale(1.5)
@@ -55,7 +56,14 @@ export default class Player {
     }
 
     update() {  
-        if (this.destroyed) return;
+        this.hearts.forEach(heart => 
+            heart.destroy()
+        )
+        this.hearts = [];
+
+        for (let i = 0; i < this.health; i++) {
+            this.hearts.push(this.scene.add.image(this.sprite.x - 25 + i*20, this.sprite.y-40, 'heart'));
+        }
     
         const sprite = this.sprite;
         const isRightKeyDown = this.rightInput.isDown;
