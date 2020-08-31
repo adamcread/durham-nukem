@@ -1,12 +1,10 @@
 # Durham Nukem
 
-### Fight bosses in Durham scenery
+**Fight bosses in Durham scenery**
 
-**Demo video available in DevPost submission**
+![](scenes/title-screen/assets/title_image.png)
 
-![](title%20screen/assets/title_image.png)
-
-# Running the game
+## Running the game
 
 1. Open the command line and `cd` into this repository, `durjam`.
 
@@ -16,13 +14,13 @@
 
 5. Play the game and enjoy!
 
-# Controls
+## Controls
 
-## Title Screen
+### Title Screen
 
 <kbd>&#8593;</kbd> Start
 
-## In-game
+### In-game
 
 <kbd>&#8593;</kbd> Jump
 
@@ -30,7 +28,7 @@
 
 <kbd>&#8595;</kbd> Shoot
 
-# Gallery
+## Gallery
 
 ![](https://media.giphy.com/media/jUbUx2XEmVhLf3flSr/giphy.gif)
 
