@@ -1,20 +1,17 @@
 export default class Player {
-    constructor(scene, x, y, shapes) {
-        this.x = x
-        this.y = y
-        this.hitboxes = shapes
+    constructor(scene, x, y) {
+        this.x = x;
+        this.y = y;
         this.scene = scene;
-        this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: this.hitboxes.player })
-        this.projectiles = [];
-        this.hearts = [];
 
-        this.sprite
+        // add player sprite
+        this.sprite = scene.matter.add.sprite(x, y, 'sheet', 'gunguy-1.png', { shape: scene.hitboxes.player })
             .setScale(1.5)
-            .setFixedRotation() // Sets inertia to infinity so the player can't rotate
+            .setFixedRotation()
             .setPosition(x, y);
 
-        const anims = scene.anims;
-        anims.create({
+        // create player idle animation
+        scene.anims.create({
             key: "player-idle",
             frames: [
                 { key: 'sheet', frame: 'gunguy-0.png'},
@@ -26,7 +23,8 @@ export default class Player {
             repeat: -1
         });
 
-        anims.create({
+        // create player running animation
+        scene.anims.create({
             key: "run",
             frames: [
                 { key: 'sheet', frame: 'gunguy-7.png'},
@@ -41,87 +39,103 @@ export default class Player {
             repeat: -1
         });
         
-        this.cursors = scene.input.keyboard.createCursorKeys();
-        this.leftInput = this.cursors.left
-        this.rightInput = this.cursors.right
-        this.jumpInput = this.cursors.up
-        this.downInput = this.cursors.down
-        this.canJump = true
-        this.canFire = true
-        this.onGround = true
-        this.health = 3;
+        // create listener for key presses
+        const cursors = scene.input.keyboard.createCursorKeys();
+        this.leftInput = cursors.left;
+        this.rightInput = cursors.right;
+        this.upInput = cursors.up;
+        this.downInput = cursors.down;
+
+        // initialise player variables
+        this.canJump = true;
+        this.canFire = true;
+        this.onGround = true;
+        this.projectiles = [];
+        this.hearts = [];
+
+        // define health of player
+        this.spawnHealth = 3;
         
-        this.destroyed = false;
-        this.scene.events.on("update", this.update, this);
+        // run this.update when scene updates occur
+        scene.events.on("update", this.update, this);
     }
 
     update() {  
+        // delete hearts in previous x y positions so that they can be redefined in new positions
         this.hearts.forEach(heart => 
             heart.destroy()
-        )
+        );
+        // remove deleted hearts from list
         this.hearts = [];
 
+        // add new hearts in updated positions which track player movement
         for (let i = 0; i < this.health; i++) {
             this.hearts.push(this.scene.add.image(this.sprite.x - 25 + i*20, this.sprite.y-40, 'heart'));
         }
-    
-        const sprite = this.sprite;
-        const isRightKeyDown = this.rightInput.isDown;
-        const isLeftKeyDown = this.leftInput.isDown;
-        const isJumpKeyDown = this.jumpInput.isDown;
-        const isDownKeyDown = this.downInput.isDown;
-    
-        if (!isLeftKeyDown && !isRightKeyDown && !isJumpKeyDown) {
-            sprite.anims.play("player-idle", true);
-        }
 
-        if (isLeftKeyDown) {
-            sprite.anims.play("run", true);
-            sprite.setFlipX(true);
-            sprite.setVelocityX(-2);
-        
-        } else if (isRightKeyDown) {
-            sprite.anims.play("run", true);
-            sprite.setFlipX(false);
-            sprite.setVelocityX(2);
-        }
-    
-        // --- Move the player vertically ---
-        if (isJumpKeyDown && this.canJump && this.onGround) {
-            sprite.setVelocityY(-10);
-
-            this.canJump = false;
-            this.jumpCooldownTimer = this.scene.time.addEvent({
-                delay: 250,
-                callback: () => (this.canJump = true)
-            });
-        }
-
-        if (isDownKeyDown && this.canFire) {
-            let d = 1
-            if (this.sprite.flipX) {
-                d = -1
-            }
-
-            this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x+15*d, this.sprite.y-3, 
-                'bullet')
-                .setScale(0.2)
-                .setVelocityX(10*d)
-                .setIgnoreGravity(true));
-
-            this.canFire = false;
-            this.jumpCooldownTimer = this.scene.time.addEvent({
-                delay: 250,
-                callback: () => (this.canFire = true)
-            });  
-        }
-
+        // if player y velocity is 0 player is on the ground
         if (this.sprite.body.velocity.y) {
             this.onGround = false;
         } else {
             this.onGround = true;
         }
+    
+        // add key press variables
+        const sprite = this.sprite;
+        const isRightKeyDown = this.rightInput.isDown;
+        const isLeftKeyDown = this.leftInput.isDown;
+        const isJumpKeyDown = this.upInput.isDown;
+        const isDownKeyDown = this.downInput.isDown;
+    
+        // play idle animation
+        if (!isLeftKeyDown && !isRightKeyDown) {
+            sprite.anims.play("player-idle", true);
+        }
 
+        // play running animation and add x velocity in appropriate direction
+        if (isLeftKeyDown) {
+            sprite.anims.play("run", true);
+            sprite.setFlipX(true);
+            sprite.setVelocityX(-2);
+        } else if (isRightKeyDown) {
+            sprite.anims.play("run", true);
+            sprite.setFlipX(false);
+            sprite.setVelocityX(2);
+        }
+
+        // player can jump on up key press if jump timer has ended and player is on the ground
+        if (isJumpKeyDown && this.canJump && this.onGround) {
+            sprite.setVelocityY(-10);
+
+            // add jump timer
+            this.canJump = false;
+            this.scene.time.addEvent({
+                delay: 250,
+                callback: () => (this.canJump = true)
+            });
+        }
+
+        // player can fire on down key press if fire timer has ended
+        if (isDownKeyDown && this.canFire) {
+            // d represents the direction that the player is currently facing
+            let d = (!this.sprite.flipX) ? 1 : -1
+
+            // spawn bullet in appropriate direction with appropriate velocty
+            // add bullet to projectile list which tracks all player bullets currently on screen
+            this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x+15*d, this.sprite.y-3, 'bullet')
+                .setScale(0.2)
+                .setVelocityX(10*d)
+                .setIgnoreGravity(true));
+
+            // add fire timer
+            this.canFire = false;
+            this.scene.time.addEvent({
+                delay: 250,
+                callback: () => (this.canFire = true)
+            });  
+        }
+
+        // remove destroyed bullets from projectiles list
         for (let i = 0; i < this.projectiles.length; i++) {
             if (this.projectiles[i].scene == undefined) {
                 this.projectiles.splice(i, 1)

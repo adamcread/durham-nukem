@@ -4,7 +4,7 @@ export default class TitleScreen extends Phaser.Scene {
    }
 
    preload() {
-       this.load.image('title', "title screen/assets/title_image.png");
+       this.load.image('title', "./scenes/title-screen/assets/title_image.png");
    }
 
    create() {
@@ -16,8 +16,6 @@ export default class TitleScreen extends Phaser.Scene {
     update () {
         if (this.cursors.up.isDown) {
             this.scene.start('BillBryson')
-        }
-
-        
+        }        
     }
 }

@@ -1,25 +1,29 @@
 export default class Boss {
-    constructor(scene, x, y, shapes) {
-        this.hitboxes = shapes
+    constructor(scene, x, y) {
         this.scene = scene;
-        this.sprite = scene.matter.add.sprite(x, y, "disciple").setFlipX(true).setSensor(true);
+        // add healthbar sprite
         this.healthbar = scene.matter.add.sprite(x, y, "healthbar").setScale(0.1).setSensor(true);
 
-        this.projectiles = []
-        this.movement = 1
-
-        console.log(this.sprite.x)
-        this.sprite
+        // add boss sprite
+        this.sprite = scene.matter.add.sprite(x, y, "disciple")
+            .setFlipX(true)
+            .setSensor(true)
+            .setIgnoreGravity(true)
             .setScale(1.5)
-            .setFixedRotation() // Sets inertia to infinity so the player can't rotate
-            .setPosition(x, y)
-            .setIgnoreGravity(true);
+            .setFixedRotation()
+            .setPosition(x, y);
         
-        this.health = 25;
-        this.scene.events.on("update", this.update, this);
+        // initialise boss variables
+        this.projectiles = [];
+        this.movement = 1;
+        this.spawnHealth = 25;
+
+        // run this.update when scene updates occur
+        scene.events.on("update", this.update, this);
     }
 
     update() {
+        // create boss movement 
         if (this.sprite.y < 75) {
             this.movement = 1
         } else if (this.sprite.y > 375) {
@@ -27,9 +31,14 @@ export default class Boss {
         }
         this.sprite.setPosition(this.sprite.x, this.sprite.y+this.movement)
 
-        this.healthbar.setScale(0.1*(this.health/25), 0.1)
+        // scale healthbar dependent on the current health of the boss
+        // reposition healthbar to follow boss
+        this.healthbar.setScale(0.1*(this.health / this.spawnHealth), 0.1)
         this.healthbar.setPosition(this.sprite.x, this.sprite.y-40)
 
+        // define boss fight phases based on current boss health
+        // on each update there is a 3% chance of boss firing 
+        // all projectiles are added to a projectiles list which tracks all boss bullets currently on screen
         if (this.health > 15) {
             if (Phaser.Math.FloatBetween(0, 1.0) < 0.03) {
                 this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x-100, this.sprite.y-3, 
@@ -40,7 +49,7 @@ export default class Boss {
             }
         } else if (this.health > 7) {
             if (Phaser.Math.FloatBetween(0, 1.0) < 0.03) {
-                for (let i = 0; i < 8; i++) {
+                for (let i = 0; i < 3; i++) {
                     this.projectiles.push(this.scene.matter.add.sprite(this.sprite.x-100, this.sprite.y-5 + i*20, 
                         'bullet')
                         .setScale(0.2)
@@ -59,8 +68,8 @@ export default class Boss {
                 }
             }
         }
-        
 
+        // remove destroyed bullets from projectiles list
         for (let i = 0; i < this.projectiles.length; i++) {
             if (this.projectiles[i].scene == undefined) {
                 this.projectiles.splice(i, 1)
