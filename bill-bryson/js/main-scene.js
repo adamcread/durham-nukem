@@ -7,7 +7,7 @@ export default class BillBryson extends Phaser.Scene {
     }
 
     preload () {
-        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/tileset/library-map4.json");
+        this.load.tilemapTiledJSON("map", "./bill-bryson/assets/tileset/library-map5.json");
         this.load.image("tileset", "bill-bryson/assets/tileset/tileset.png");
 
         this.load.image("background", "bill-bryson/assets/images/library.png");
@@ -33,7 +33,6 @@ export default class BillBryson extends Phaser.Scene {
         this.spikeLayer = map.createStaticLayer("spikes", tileset, 0, 0);
         const platformLayer = map.createStaticLayer("platforms", tileset, 0, 0);
         map.createStaticLayer("bookshelves", tileset, 0, 0);
-        console.log(map)
 
         this.spikeLayer.setCollisionByProperty({ collides: true });
         platformLayer.setCollisionByProperty({ collides: true });
@@ -44,16 +43,17 @@ export default class BillBryson extends Phaser.Scene {
         this.matter.world.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         // this.cameras.main.setBounds(0, 0, map.widthInPixels, 352);
 
-        this.x = 100
+        this.deathText = this.add.text(16, 30, 'Deaths: 0', { fontSize: '32px', fill: '#000' });
+
+        this.x = 50
         this.y = 300
         this.player = new Player(this, this.x, this.y, shapes);
         // this.cameras.main.startFollow(this.player.sprite, false, 0.5, 0.5);
 
-        this.boss = new Boss(this, 700, 210, shapes);
+        this.boss = new Boss(this, 700, 300, shapes);
         this.playerCanDamage = true;
         this.bossCanDamage = true;
-        
-        // console.log(this.spikeLayer)
+        this.deaths = 0
 
         this.matterCollision.addOnCollideActive({
             objectA: this.player.sprite,
@@ -64,8 +64,6 @@ export default class BillBryson extends Phaser.Scene {
     }
 
     update() {
-
-        // console.log(this.player.projectiles)
         this.matterCollision.addOnCollideStart({
             objectA: this.player.projectiles,
             callback: this.playerBulletCollision,
@@ -79,6 +77,8 @@ export default class BillBryson extends Phaser.Scene {
         })
 
         if (this.player.health <= 0) {
+            this.deaths += 1;
+            this.deathText.setText('Deaths: ' + this.deaths);
             this.player.sprite.setPosition(this.x, this.y);
             this.boss.health = 25;
             this.player.health = 3;
@@ -86,14 +86,12 @@ export default class BillBryson extends Phaser.Scene {
 
         if (this.boss.health <= 0) {
             this.scene.start("Cathedral")
-            // this.scene.start('EndScreen')
         }
     }
 
     playerBulletCollision ({ bodyA, bodyB, pair }) {
         if ((pair.gameObjectA == this.boss.sprite || pair.gameObjectA == this.boss.sprite) && this.playerCanDamage) {
             this.boss.health -= 1
-            console.log("boss", this.boss.health)
             
             this.playerCanDamage = false;
             this.time.addEvent({
@@ -112,7 +110,6 @@ export default class BillBryson extends Phaser.Scene {
     bossBulletCollision ({ bodyA, bodyB, pair }) {
         if ((pair.gameObjectA == this.player.sprite || pair.gameObjectA == this.player.sprite) && this.bossCanDamage) {
             this.player.health -= 1
-            console.log("player", this.player.health)
             
             this.bossCanDamage = false;
             this.time.addEvent({

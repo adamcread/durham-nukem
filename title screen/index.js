@@ -9,7 +9,6 @@ export default class TitleScreen extends Phaser.Scene {
 
    create() {
         this.add.image(0, 0, 'title').setOrigin(0, 0);
-        this.add.text(20, 20, "Loading game..."); 
 
         this.cursors = this.input.keyboard.createCursorKeys();
    }

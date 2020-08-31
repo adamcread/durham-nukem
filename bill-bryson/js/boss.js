@@ -6,6 +6,7 @@ export default class Boss {
         this.healthbar = scene.matter.add.sprite(x, y, "healthbar").setScale(0.1).setSensor(true);
 
         this.projectiles = []
+        this.movement = 1
 
         console.log(this.sprite.x)
         this.sprite
@@ -18,15 +19,16 @@ export default class Boss {
         this.scene.events.on("update", this.update, this);
     }
 
-    update(time) {
+    update() {
+        if (this.sprite.y < 75) {
+            this.movement = 1
+        } else if (this.sprite.y > 375) {
+            this.movement = -1
+        }
+        this.sprite.setPosition(this.sprite.x, this.sprite.y+this.movement)
+
         this.healthbar.setScale(0.1*(this.health/25), 0.1)
         this.healthbar.setPosition(this.sprite.x, this.sprite.y-40)
-
-        if (time % 5500 < 2750) {
-            this.sprite.setVelocityY(-1)
-        } else {
-            this.sprite.setVelocityY(1)
-        }
 
         if (this.health > 15) {
             if (Phaser.Math.FloatBetween(0, 1.0) < 0.03) {
