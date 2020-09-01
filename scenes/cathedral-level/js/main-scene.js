@@ -1,4 +1,4 @@
-import Player from "../../bill-bryson/js/player.js";
+import Player from "../../../js/player.js";
 import Boss from "./boss.js";
 
 export default class Cathedral extends Phaser.Scene {
@@ -8,20 +8,13 @@ export default class Cathedral extends Phaser.Scene {
 
     preload ()
     {
-        this.load.tilemapTiledJSON('cathedral-map', './cathedral-level/assets/tilemaps/cathedral-map.json');
-        this.load.image('tiles', './cathedral-level/assets/tilesets/Tiny Platform Quest Tiles.png'); 
+        this.load.tilemapTiledJSON('cathedral-map', './scenes/cathedral-level/assets/tilemaps/cathedral-map.json');
+        this.load.image('tiles', './scenes/cathedral-level/assets/tilesets/Tiny Platform Quest Tiles.png'); 
         
-        this.load.image('cathedral', './cathedral-level/assets/images/cathedral-pixelated.png'); 
-        this.load.image("bullet", "/bill-bryson/assets/bullet.png");
-
-        // Load sprite sheet generated with TexturePacker
-        this.load.atlas('sheet', '/bill-bryson/assets/datasprite.png', '/bill-bryson/assets/datasprite.json');
-
-        // Load body shapes from JSON file generated using PhysicsEditor
-        this.load.json('shapes', '/bill-bryson/assets/player-hitbox.json');
+        this.load.image('cathedral', './scenes/cathedral-level/assets/images/cathedral-pixelated.png'); 
 
         this.load.spritesheet('dude', 
-            './cathedral-level/assets/spritesheets/eyelander.png',
+            './scenes/cathedral-level/assets/spritesheets/eyelander.png',
             { frameWidth: 32, frameHeight: 32 }
         );
     }
@@ -30,7 +23,7 @@ export default class Cathedral extends Phaser.Scene {
     {
         this.add.image(400, 176, 'cathedral')
 
-        const shapes = this.cache.json.get('shapes');
+        this.hitboxes = this.cache.json.get('hitboxes');
         const map = this.make.tilemap({ key: 'cathedral-map' });
         const tileset = map.addTilesetImage('Tiny Platform Quest Tiles', 'tiles');
         const platformLayer = map.createStaticLayer('Ground Layer', tileset, 0, 0);
@@ -48,7 +41,8 @@ export default class Cathedral extends Phaser.Scene {
         
         this.x = 300
         this.y = 300
-        this.player = new Player(this, this.x, this.y, shapes, platformLayer);
+        this.player = new Player(this, this.x, this.y);
+        this.player.health = this.player.spawnHealth;
 
         this.boss = new Boss(this, 408 , 168);
         this.playerCanDamage = true;
