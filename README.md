@@ -6,13 +6,13 @@
 
 ## Running the game
 
-1. Open the command line and `cd` into this repository, `durjam`.
+1. Open this directory in the command line, e.g. by `cd durham-nukem`.
 
 2. Start a server, e.g. by `python -m SimpleHTTPServer`.
 
-3. Open your browser and load "localhost:8000".
+3. Open your browser and load the port on which the server is hosted, e.g. on "localhost:8000".
 
-5. Play the game and enjoy!
+4. Play the game and enjoy!
 
 ## Controls
 
